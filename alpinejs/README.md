@@ -23,4 +23,4 @@ npm run dev
 
 ## Notes
 
-This example uses Alpine.js from CDN, so no npm installation is required. The development server uses Python's built-in HTTP server for simplicity.
+This example uses Alpine.js from CDN, so no npm installation is required. The HTML file can be opened directly in a browser or served via any static file server. It's iframe-ready and requires no build process.

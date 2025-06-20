@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DaisyUI Buttondown Example - Dropdown</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body class="min-h-screen flex items-center justify-center bg-base-200">
+    <div id="root"></div>
+
+    <script type="text/babel">
+      function SubscribeForm() {
+        const [language, setLanguage] = React.useState("english");
+
+        return (
+          <div className="card card-bordered card-normal w-full max-w-sm mx-auto p-6 bg-base-100">
+            <form
+              action="https://buttondown.com/api/emails/embed-subscribe/{username}"
+              method="post"
+            >
+              <div className="grid gap-4">
+                <div>
+                  <h3 className="card-title text-2xl">Stay informed</h3>
+                  <p className="text-sm">
+                    You'll be the first to know when we launch.
+                  </p>
+                </div>
+
+                <div className="grid gap-2">
+                  <label htmlFor="email" className="label">
+                    <span className="label-text">Email</span>
+                  </label>
+                  <input
+                    className="input input-bordered w-full"
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="m@example.com"
+                    required
+                  />
+                </div>
+
+                <div className="grid gap-2">
+                  <input type="hidden" name="tag" value={language} />
+                  <label htmlFor="language" className="label">
+                    <span className="label-text">Language</span>
+                  </label>
+                  <select 
+                    className="select select-bordered w-full" 
+                    value={language} 
+                    onChange={(e) => setLanguage(e.target.value)}
+                  >
+                    <option value="english">English</option>
+                    <option value="french">French</option>
+                    <option value="spanish">Spanish</option>
+                  </select>
+                </div>
+
+                <div className="card-actions">
+                  <button className="btn btn-primary w-full" type="submit">
+                    {language === "english"
+                      ? "Subscribe"
+                      : language === "french"
+                        ? "S'abonner"
+                        : "Suscribirse"}
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<SubscribeForm />);
+    </script>
+  </body>
+</html>

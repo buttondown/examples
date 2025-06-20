@@ -1,70 +1,37 @@
 # DaisyUI Buttondown Examples
 
-Newsletter subscription form examples built with DaisyUI, React, and Buttondown.
+Newsletter subscription form examples built with DaisyUI, React, and Buttondown using CDN versions.
 
 ## Getting Started
 
 1. Clone this repository
-2. Install dependencies:
-
-```bash
-npm install
-```
-
-3. Create a `tailwind.config.js` file:
-
-```js
-module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [require("daisyui")],
-}
-```
-
-4. Create a `postcss.config.js` file:
-
-```js
-module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-}
-```
-
-5. Create a global CSS file at `app/globals.css`:
-
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-
-6. Replace `{username}` in the component files with your Buttondown username
-
-7. Run the development server:
+2. Replace `{username}` in the HTML files with your Buttondown username
+3. Open the HTML files directly in your browser or serve them:
 
 ```bash
 npm run dev
 ```
 
-8. Open http://localhost:3000 in your browser
+4. Open http://localhost:3000 in your browser
 
 ## Examples
 
-- `basic.tsx` - Simple email subscription form
-- `dropdown.tsx` - Subscription form with language selection dropdown
+- `basic.html` - Simple email subscription form (no JavaScript required)
+- `dropdown.html` - Subscription form with language selection dropdown (uses React via CDN)
 
 ## Features
 
+- No build process required
+- iframe-ready
 - Responsive card-based layout
-- DaisyUI styling components
+- DaisyUI styling via CDN
 - Form validation
 - Language selection with dynamic button text
-- Next.js App Router compatible
+
+## Notes
+
+Both examples use CDN versions of all dependencies:
+- DaisyUI and Tailwind CSS via CDN
+- React via unpkg CDN (for dropdown example)
+- Babel standalone for JSX transformation
+- Can be embedded directly in iframes
