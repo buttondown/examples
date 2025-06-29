@@ -1,0 +1,24 @@
+{
+  "name": "ui-framework-bootstrap",
+  "version": "1.0.0",
+  "description": "Bootstrap data and context generator for UI framework examples",
+  "main": "generate-context.js",
+  "scripts": {
+    "generate": "node generate-context.js",
+    "build": "npm run generate",
+    "dev": "npm run generate && echo 'Files generated successfully!'"
+  },
+  "keywords": [
+    "bootstrap",
+    "context",
+    "ui-frameworks",
+    "generator",
+    "buttondown"
+  ],
+  "author": "Generated Script",
+  "license": "MIT",
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

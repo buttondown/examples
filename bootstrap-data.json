@@ -1,0 +1,200 @@
+{
+  "generated": "2025-06-29T17:06:13.477Z",
+  "version": "1.0.0",
+  "project": {
+    "name": "Buttondown UI Framework Examples",
+    "description": "Newsletter subscription form examples for different UI frameworks",
+    "type": "ui-examples"
+  },
+  "frameworks": [
+    {
+      "name": "daisyui",
+      "displayName": "Daisyui",
+      "description": "Newsletter subscription form examples built with DaisyUI, React, and Buttondown using CDN versions.",
+      "features": [
+        "No build process required",
+        "iframe-ready",
+        "Responsive card-based layout",
+        "DaisyUI styling via CDN",
+        "Form validation",
+        "Language selection with dynamic button text"
+      ],
+      "examples": [
+        {
+          "title": "DaisyUI Buttondown Example - Basic",
+          "filename": "basic.html",
+          "usesReact": false,
+          "buttondownAction": "https://buttondown.com/api/emails/embed-subscribe/{username}",
+          "dependencies": {
+            "css": [
+              "https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+            ],
+            "scripts": [
+              "https://cdn.tailwindcss.com"
+            ]
+          },
+          "formFields": [
+            "email"
+          ],
+          "size": 1528
+        },
+        {
+          "title": "DaisyUI Buttondown Example - Dropdown",
+          "filename": "dropdown.html",
+          "usesReact": true,
+          "buttondownAction": "https://buttondown.com/api/emails/embed-subscribe/{username}",
+          "dependencies": {
+            "css": [
+              "https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+            ],
+            "scripts": [
+              "https://cdn.tailwindcss.com",
+              "https://unpkg.com/react@18/umd/react.production.min.js",
+              "https://unpkg.com/react-dom@18/umd/react-dom.production.min.js",
+              "https://unpkg.com/@babel/standalone/babel.min.js"
+            ]
+          },
+          "formFields": [
+            "email",
+            "tag"
+          ],
+          "size": 3237
+        }
+      ],
+      "totalExamples": 2,
+      "hasReadme": true
+    },
+    {
+      "name": "mantine",
+      "displayName": "Mantine",
+      "description": "A newsletter subscription form built with Mantine, React, and Buttondown using CDN versions.",
+      "features": [
+        "No build process required",
+        "iframe-ready",
+        "Form validation with Mantine's form hook",
+        "Uncontrolled form mode for better performance",
+        "Name and email field validation",
+        "Clean, minimal UI with Mantine components"
+      ],
+      "examples": [
+        {
+          "title": "Mantine Buttondown Example",
+          "filename": "basic.html",
+          "usesReact": true,
+          "buttondownAction": null,
+          "dependencies": {
+            "css": [
+              "https://unpkg.com/@mantine/core@7.3.0/styles.css"
+            ],
+            "scripts": [
+              "https://unpkg.com/react@18/umd/react.production.min.js",
+              "https://unpkg.com/react-dom@18/umd/react-dom.production.min.js",
+              "https://unpkg.com/@babel/standalone/babel.min.js",
+              "https://unpkg.com/@mantine/core@7.3.0/dist/index.umd.js",
+              "https://unpkg.com/@mantine/form@7.3.0/dist/index.umd.js",
+              "https://unpkg.com/@mantine/hooks@7.3.0/dist/index.umd.js"
+            ]
+          },
+          "formFields": [],
+          "size": 2611
+        }
+      ],
+      "totalExamples": 1,
+      "hasReadme": true
+    },
+    {
+      "name": "shadcn",
+      "displayName": "Shadcn",
+      "description": "Newsletter subscription form examples built with shadcn/ui styling, React, and Buttondown using CDN versions.",
+      "features": [
+        "No build process required",
+        "iframe-ready",
+        "shadcn/ui-inspired styling via Tailwind CSS",
+        "Responsive card-based layout",
+        "Form validation",
+        "Language selection with dynamic button text"
+      ],
+      "examples": [
+        {
+          "title": "shadcn/ui Buttondown Example - Basic",
+          "filename": "basic.html",
+          "usesReact": false,
+          "buttondownAction": "https://buttondown.com/api/emails/embed-subscribe/{username}",
+          "dependencies": {
+            "css": [],
+            "scripts": [
+              "https://cdn.tailwindcss.com"
+            ]
+          },
+          "formFields": [
+            "email"
+          ],
+          "size": 3232
+        },
+        {
+          "title": "shadcn/ui Buttondown Example - Dropdown",
+          "filename": "dropdown.html",
+          "usesReact": true,
+          "buttondownAction": "https://buttondown.com/api/emails/embed-subscribe/{username}",
+          "dependencies": {
+            "css": [],
+            "scripts": [
+              "https://cdn.tailwindcss.com",
+              "https://unpkg.com/react@18/umd/react.production.min.js",
+              "https://unpkg.com/react-dom@18/umd/react-dom.production.min.js",
+              "https://unpkg.com/@babel/standalone/babel.min.js"
+            ]
+          },
+          "formFields": [
+            "email",
+            "tag"
+          ],
+          "size": 5075
+        }
+      ],
+      "totalExamples": 2,
+      "hasReadme": true
+    },
+    {
+      "name": "alpinejs",
+      "displayName": "Alpinejs",
+      "description": "A simple newsletter subscription form built with Alpine.js and Buttondown.",
+      "features": [
+        "Simple email subscription form",
+        "Loading states during submission",
+        "Client-side form handling with Alpine.js",
+        "No build process required"
+      ],
+      "examples": [
+        {
+          "title": "Alpine.js Buttondown Example",
+          "filename": "index.html",
+          "usesReact": false,
+          "buttondownAction": null,
+          "dependencies": {
+            "css": [],
+            "scripts": [
+              "https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+            ]
+          },
+          "formFields": [
+            "email"
+          ],
+          "size": 1677
+        }
+      ],
+      "totalExamples": 1,
+      "hasReadme": true
+    }
+  ],
+  "summary": {
+    "totalFrameworks": 4,
+    "totalExamples": 6,
+    "supportedFrameworks": [
+      "daisyui",
+      "mantine",
+      "shadcn",
+      "alpinejs"
+    ]
+  }
+}
