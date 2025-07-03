@@ -1,0 +1,10 @@
+<form class="buttondown-form" action="{{ site.buttondown_form_url }}" method="post" target="popupwindow" onsubmit="window.open('{{ site.buttondown_form_url }}', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+    <div class="form-group">
+        <input type="email" name="email" id="bd-email" placeholder="Enter your email" required>
+        <input type="hidden" value="1" name="embed"/>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+    </div>
+    <p class="form-note">
+        <small>No spam, unsubscribe at any time.</small>
+    </p>
+</form>

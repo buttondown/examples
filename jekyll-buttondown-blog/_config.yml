@@ -1,0 +1,52 @@
+# Site settings
+title: My Modern Blog
+email: your-email@example.com
+description: >-
+  A beautiful Jekyll blog with newsletter integration powered by Buttondown.
+  Subscribe to get the latest posts delivered to your inbox.
+baseurl: ""
+url: "https://yourdomain.com"
+twitter_username: yourtwitter
+github_username: yourgithub
+
+# Buttondown settings
+buttondown_username: your-buttondown-username
+buttondown_form_url: https://buttondown.email/api/emails/embed-subscribe/your-buttondown-username
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+# Pagination
+paginate: 6
+paginate_path: "/page:num/"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Your Name"

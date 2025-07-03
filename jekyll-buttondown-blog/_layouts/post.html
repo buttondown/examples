@@ -1,0 +1,61 @@
+---
+layout: default
+---
+
+<article class="post">
+    <div class="container">
+        <header class="post-header">
+            <h1 class="post-title">{{ page.title }}</h1>
+            <div class="post-meta">
+                <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+                {% if page.author %} • By {{ page.author }}{% endif %}
+                {% if page.categories %}
+                • 
+                {% for category in page.categories %}
+                    <span class="category">{{ category }}</span>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </header>
+        
+        {% if page.image %}
+        <div class="post-image-wrapper">
+            <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="post-featured-image">
+        </div>
+        {% endif %}
+        
+        <div class="post-body">
+            {{ content }}
+        </div>
+        
+        <footer class="post-footer">
+            {% if page.tags %}
+            <div class="post-tags">
+                <h4>Tags:</h4>
+                {% for tag in page.tags %}
+                    <a href="#" class="tag">#{{ tag }}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            <div class="post-newsletter">
+                <h3>Enjoyed this post?</h3>
+                <p>Subscribe to the newsletter to get notified about new posts.</p>
+                {% include buttondown-form.html %}
+            </div>
+            
+            <div class="post-navigation">
+                {% if page.previous %}
+                <a href="{{ page.previous.url | relative_url }}" class="nav-prev">
+                    ← {{ page.previous.title }}
+                </a>
+                {% endif %}
+                {% if page.next %}
+                <a href="{{ page.next.url | relative_url }}" class="nav-next">
+                    {{ page.next.title }} →
+                </a>
+                {% endif %}
+            </div>
+        </footer>
+    </div>
+</article>

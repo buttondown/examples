@@ -1,0 +1,21 @@
+<header class="site-header">
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="{{ '/' | relative_url }}" class="logo">{{ site.title }}</a>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu">
+                    <li><a href="{{ '/' | relative_url }}">Home</a></li>
+                    <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+                    <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+                    <li><a href="{{ '/newsletter/' | relative_url }}">Newsletter</a></li>
+                    <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

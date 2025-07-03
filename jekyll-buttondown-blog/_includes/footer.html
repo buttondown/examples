@@ -1,0 +1,33 @@
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Subscribe to Newsletter</h3>
+                <p>Get the latest posts delivered right to your inbox.</p>
+                {% include buttondown-form.html %}
+            </div>
+            
+            <div class="footer-section">
+                <h3>About</h3>
+                <p>{{ site.description }}</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    {% if site.twitter_username %}
+                    <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener">Twitter</a>
+                    {% endif %}
+                    {% if site.github_username %}
+                    <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">GitHub</a>
+                    {% endif %}
+                    <a href="{{ '/feed.xml' | relative_url }}">RSS Feed</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; {{ 'now' | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+        </div>
+    </div>
+</footer>

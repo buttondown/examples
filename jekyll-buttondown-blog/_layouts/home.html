@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to {{ site.title }}</h1>
+            <p class="hero-description">{{ site.description }}</p>
+            <div class="hero-cta">
+                <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary">Read Blog</a>
+                <a href="{{ '/newsletter/' | relative_url }}" class="btn btn-secondary">Subscribe</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="latest-posts">
+    <div class="container">
+        <h2 class="section-title">Latest Posts</h2>
+        <div class="posts-grid">
+            {% for post in site.posts limit:3 %}
+            <article class="post-card">
+                {% if post.image %}
+                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="post-image">
+                {% endif %}
+                <div class="post-content">
+                    <h3 class="post-title">
+                        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                    </h3>
+                    <p class="post-meta">
+                        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+                        {% if post.author %} • {{ post.author }}{% endif %}
+                    </p>
+                    <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+                    <a href="{{ post.url | relative_url }}" class="read-more">Read more →</a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        <div class="section-footer">
+            <a href="{{ '/blog/' | relative_url }}" class="btn btn-outline">View All Posts</a>
+        </div>
+    </div>
+</section>
+
+<section class="newsletter-section">
+    <div class="container">
+        <div class="newsletter-box">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter and never miss a post.</p>
+            {% include buttondown-form.html %}
+        </div>
+    </div>
+</section>
