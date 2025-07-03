@@ -1,0 +1,19 @@
+current directory: /workspace/vendor/bundle/ruby/3.3.0/gems/eventmachine-1.2.7/ext/fastfilereader
+/usr/bin/ruby3.3 -I/usr/lib/ruby/vendor_ruby extconf.rb
+creating Makefile
+
+current directory: /workspace/vendor/bundle/ruby/3.3.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make DESTDIR\= sitearchdir\=./.gem.20250703-2457-tuvsfo sitelibdir\=./.gem.20250703-2457-tuvsfo clean
+
+current directory: /workspace/vendor/bundle/ruby/3.3.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make DESTDIR\= sitearchdir\=./.gem.20250703-2457-tuvsfo sitelibdir\=./.gem.20250703-2457-tuvsfo
+compiling mapper.cpp
+compiling rubymain.cpp
+linking shared-object fastfilereaderext.so
+
+current directory: /workspace/vendor/bundle/ruby/3.3.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make DESTDIR\= sitearchdir\=./.gem.20250703-2457-tuvsfo sitelibdir\=./.gem.20250703-2457-tuvsfo install
+/usr/bin/install -c -m 0755 fastfilereaderext.so ./.gem.20250703-2457-tuvsfo
+
+current directory: /workspace/vendor/bundle/ruby/3.3.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make DESTDIR\= sitearchdir\=./.gem.20250703-2457-tuvsfo sitelibdir\=./.gem.20250703-2457-tuvsfo clean

@@ -1,0 +1,53 @@
+# Site Settings
+title: "My Jekyll Blog"
+description: "A modern Jekyll blog with Buttondown newsletter integration"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://localhost:4000" # the base hostname & protocol for your site
+author: "Your Name"
+email: "your-email@example.com"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Pagination
+paginate: 5
+paginate_path: "/page:num/"
+
+# Buttondown Newsletter Integration
+buttondown:
+  username: "your-username" # Replace with your Buttondown username
+  api_key: "" # Optional: Add your API key for advanced features
+  signup_form_url: "https://buttondown.email/your-username" # Replace with your actual signup URL
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Your Name"
+      show_newsletter_signup: true
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md

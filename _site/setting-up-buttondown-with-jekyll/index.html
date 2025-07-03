@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>How to Integrate Buttondown with Your Jekyll Blog | My Jekyll Blog</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="How to Integrate Buttondown with Your Jekyll Blog" />
+<meta name="author" content="Your Name" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A comprehensive guide to integrating Buttondown newsletter service with your Jekyll blog, including setup, customization, and best practices." />
+<meta property="og:description" content="A comprehensive guide to integrating Buttondown newsletter service with your Jekyll blog, including setup, customization, and best practices." />
+<link rel="canonical" href="http://localhost:4000/setting-up-buttondown-with-jekyll/" />
+<meta property="og:url" content="http://localhost:4000/setting-up-buttondown-with-jekyll/" />
+<meta property="og:site_name" content="My Jekyll Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-01-20T14:30:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to Integrate Buttondown with Your Jekyll Blog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Your Name"},"dateModified":"2024-01-20T14:30:00+00:00","datePublished":"2024-01-20T14:30:00+00:00","description":"A comprehensive guide to integrating Buttondown newsletter service with your Jekyll blog, including setup, customization, and best practices.","headline":"How to Integrate Buttondown with Your Jekyll Blog","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/setting-up-buttondown-with-jekyll/"},"url":"http://localhost:4000/setting-up-buttondown-with-jekyll/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/assets/buttondown.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="My Jekyll Blog" /></head><body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">My Jekyll Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <a class="page-link" href="/">Home</a>
+          <a class="page-link" href="/about/">About</a>
+          <a class="page-link" href="/newsletter/">Newsletter</a>
+        </div>
+      </nav></div>
+</header><main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">How to Integrate Buttondown with Your Jekyll Blog</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2024-01-20T14:30:00+00:00" itemprop="datePublished">Jan 20, 2024
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Your Name</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Building an engaged audience is crucial for any blog, and newsletters are one of the most effective ways to maintain that connection. In this tutorial, I’ll show you how to integrate <a href="https://buttondown.email">Buttondown</a> with your Jekyll blog.</p>
+
+<h2 id="why-choose-buttondown">Why Choose Buttondown?</h2>
+
+<p>Before diving into the technical implementation, let’s understand why Buttondown is an excellent choice for developers:</p>
+
+<h3 id="developer-friendly-features">Developer-Friendly Features</h3>
+
+<ul>
+  <li><strong>Simple API</strong>: RESTful API for programmatic access</li>
+  <li><strong>Webhook Support</strong>: Real-time notifications for events</li>
+  <li><strong>Markdown Support</strong>: Write newsletters in Markdown</li>
+  <li><strong>Custom Domains</strong>: Use your own domain for emails</li>
+  <li><strong>No Lock-in</strong>: Export your subscribers anytime</li>
+</ul>
+
+<h3 id="privacy-and-ethics">Privacy and Ethics</h3>
+
+<ul>
+  <li><strong>GDPR Compliant</strong>: Built with privacy regulations in mind</li>
+  <li><strong>No Tracking Pixels</strong>: Respects subscriber privacy</li>
+  <li><strong>Transparent Analytics</strong>: Simple, honest metrics</li>
+  <li><strong>No Ads</strong>: Clean, distraction-free emails</li>
+</ul>
+
+<h2 id="setting-up-your-buttondown-account">Setting Up Your Buttondown Account</h2>
+
+<ol>
+  <li><strong>Sign Up</strong>: Create an account at <a href="https://buttondown.email">buttondown.email</a></li>
+  <li><strong>Choose a Username</strong>: This will be part of your signup URL</li>
+  <li><strong>Configure Settings</strong>: Set up your sender name, description, and branding</li>
+  <li><strong>Get Your Signup URL</strong>: Found in your dashboard under “Sharing”</li>
+</ol>
+
+<p>Your signup URL will look like: <code class="language-plaintext highlighter-rouge">https://buttondown.email/your-username</code></p>
+
+<h2 id="jekyll-configuration">Jekyll Configuration</h2>
+
+<p>Add Buttondown configuration to your <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Buttondown Newsletter Integration</span>
+<span class="na">buttondown</span><span class="pi">:</span>
+  <span class="na">username</span><span class="pi">:</span> <span class="s2">"</span><span class="s">your-username"</span>
+  <span class="na">api_key</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <span class="c1"># Optional: for API access</span>
+  <span class="na">signup_form_url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://buttondown.email/your-username"</span>
+</code></pre></div></div>
+
+<h2 id="creating-the-signup-component">Creating the Signup Component</h2>
+
+<p>Create <code class="language-plaintext highlighter-rouge">_includes/buttondown-signup.html</code>:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{%- assign context = include.context | default: "post" -%}
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"newsletter-signup {{ context }}-newsletter"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"newsletter-content"</span><span class="nt">&gt;</span>
+    {%- if context == "post" -%}
+      <span class="nt">&lt;h3&gt;</span>📧 Enjoyed this post?<span class="nt">&lt;/h3&gt;</span>
+      <span class="nt">&lt;p&gt;</span>Subscribe to my newsletter for more content like this.<span class="nt">&lt;/p&gt;</span>
+    {%- elsif context == "footer" -%}
+      <span class="nt">&lt;h4&gt;</span>Newsletter<span class="nt">&lt;/h4&gt;</span>
+      <span class="nt">&lt;p&gt;</span>Stay updated with new posts<span class="nt">&lt;/p&gt;</span>
+    {%- else -%}
+      <span class="nt">&lt;h3&gt;</span>📧 Subscribe to the Newsletter<span class="nt">&lt;/h3&gt;</span>
+      <span class="nt">&lt;p&gt;</span>Get weekly updates with new articles and insights.<span class="nt">&lt;/p&gt;</span>
+    {%- endif -%}
+    
+    <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"{{ site.buttondown.signup_form_url }}"</span> 
+          <span class="na">method=</span><span class="s">"post"</span> 
+          <span class="na">target=</span><span class="s">"popupwindow"</span> 
+          <span class="na">onsubmit=</span><span class="s">"window.open('{{ site.buttondown.signup_form_url }}', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"</span> 
+          <span class="na">class=</span><span class="s">"buttondown-form"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"email"</span> 
+               <span class="na">name=</span><span class="s">"email"</span> 
+               <span class="na">placeholder=</span><span class="s">"Enter your email address"</span> 
+               <span class="na">required</span> 
+               <span class="na">class=</span><span class="s">"newsletter-input"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">value=</span><span class="s">"1"</span> <span class="na">name=</span><span class="s">"embed"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"newsletter-button"</span><span class="nt">&gt;</span>
+          Subscribe →
+        <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+    
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"newsletter-privacy"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;small&gt;</span>No spam, unsubscribe anytime. Powered by 
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://buttondown.email"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>Buttondown<span class="nt">&lt;/a&gt;</span>.
+      <span class="nt">&lt;/small&gt;</span>
+    <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h2 id="styling-the-component">Styling the Component</h2>
+
+<p>Add custom CSS to make the signup form look great:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.newsletter-signup</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nf">linear-gradient</span><span class="p">(</span><span class="m">135deg</span><span class="p">,</span> <span class="nx">#667eea</span> <span class="m">0%</span><span class="p">,</span> <span class="nx">#764ba2</span> <span class="m">100%</span><span class="p">);</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">12px</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">2rem</span><span class="p">;</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">2rem</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="nx">white</span><span class="p">;</span>
+  <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">10px</span> <span class="m">30px</span> <span class="nf">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.1</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nc">.form-group</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">flex</span><span class="p">;</span>
+  <span class="nl">gap</span><span class="p">:</span> <span class="m">0.5rem</span><span class="p">;</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="nb">stretch</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.newsletter-input</span> <span class="p">{</span>
+  <span class="nl">flex</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">0.75rem</span> <span class="m">1rem</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">8px</span><span class="p">;</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nf">rgba</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">0.95</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nc">.newsletter-button</span> <span class="p">{</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">0.75rem</span> <span class="m">1.5rem</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nf">rgba</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">0.2</span><span class="p">);</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">solid</span> <span class="nf">rgba</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">0.3</span><span class="p">);</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">8px</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="nx">white</span><span class="p">;</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="m">600</span><span class="p">;</span>
+  <span class="nl">cursor</span><span class="p">:</span> <span class="nb">pointer</span><span class="p">;</span>
+  <span class="nl">transition</span><span class="p">:</span> <span class="nb">all</span> <span class="m">0.2s</span> <span class="nb">ease</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.newsletter-button</span><span class="nd">:hover</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nf">rgba</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">255</span><span class="p">,</span> <span class="m">0.3</span><span class="p">);</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="nf">translateX</span><span class="p">(</span><span class="m">2px</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="using-the-component">Using the Component</h2>
+
+<h3 id="in-blog-posts">In Blog Posts</h3>
+
+<p>Add to your post layout (<code class="language-plaintext highlighter-rouge">_layouts/post.html</code>):</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{%- if page.show_newsletter_signup -%}
+  {%- include buttondown-signup.html -%}
+{%- endif -%}
+</code></pre></div></div>
+
+<h3 id="in-the-footer">In the Footer</h3>
+
+<p>Add to <code class="language-plaintext highlighter-rouge">_includes/footer.html</code>:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{%- include buttondown-signup.html context="footer" -%}
+</code></pre></div></div>
+
+<h3 id="on-standalone-pages">On Standalone Pages</h3>
+
+<p>Use directly in any page:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% include buttondown-signup.html context="page" %}
+</code></pre></div></div>
+
+<h2 id="advanced-features">Advanced Features</h2>
+
+<h3 id="api-integration">API Integration</h3>
+
+<p>If you want to programmatically manage subscribers, use Buttondown’s API:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Add subscriber via API</span>
+<span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="dl">'</span><span class="s1">https://api.buttondown.email/v1/subscribers</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="s2">`Token </span><span class="p">${</span><span class="nx">API_KEY</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nf">stringify</span><span class="p">({</span>
+    <span class="na">email</span><span class="p">:</span> <span class="dl">'</span><span class="s1">subscriber@example.com</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">tags</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">blog</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">jekyll</span><span class="dl">'</span><span class="p">],</span>
+  <span class="p">}),</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="webhook-integration">Webhook Integration</h3>
+
+<p>Set up webhooks to trigger actions when users subscribe:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># _config.yml</span>
+<span class="na">buttondown</span><span class="pi">:</span>
+  <span class="na">webhook_url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://your-site.com/webhook/buttondown"</span>
+  <span class="na">webhook_secret</span><span class="pi">:</span> <span class="s2">"</span><span class="s">your-secret-key"</span>
+</code></pre></div></div>
+
+<h2 id="best-practices">Best Practices</h2>
+
+<h3 id="signup-form-placement">Signup Form Placement</h3>
+
+<ol>
+  <li><strong>After Posts</strong>: Most effective placement for engaged readers</li>
+  <li><strong>Footer</strong>: Catches visitors who scroll to the bottom</li>
+  <li><strong>About Page</strong>: For visitors learning about you</li>
+  <li><strong>Dedicated Newsletter Page</strong>: For focused promotion</li>
+</ol>
+
+<h3 id="content-strategy">Content Strategy</h3>
+
+<ul>
+  <li><strong>Consistent Schedule</strong>: Set expectations for frequency</li>
+  <li><strong>Valuable Content</strong>: Don’t just notify about new posts</li>
+  <li><strong>Personal Touch</strong>: Share insights and behind-the-scenes content</li>
+  <li><strong>Respect Privacy</strong>: Be transparent about what you send</li>
+</ul>
+
+<h3 id="performance-optimization">Performance Optimization</h3>
+
+<ul>
+  <li><strong>Lazy Loading</strong>: Load signup forms only when needed</li>
+  <li><strong>Minimal JavaScript</strong>: Keep the integration lightweight</li>
+  <li><strong>Progressive Enhancement</strong>: Ensure forms work without JavaScript</li>
+</ul>
+
+<h2 id="testing-your-integration">Testing Your Integration</h2>
+
+<ol>
+  <li><strong>Test the Form</strong>: Try subscribing with a test email</li>
+  <li><strong>Check Styling</strong>: Verify appearance across devices</li>
+  <li><strong>Verify Tracking</strong>: Ensure popup behavior works correctly</li>
+  <li><strong>Test Unsubscribe</strong>: Make sure the process is smooth</li>
+</ol>
+
+<h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
+
+<h3 id="form-not-submitting">Form Not Submitting</h3>
+
+<ul>
+  <li>Check the action URL in your form</li>
+  <li>Verify your Buttondown username is correct</li>
+  <li>Ensure JavaScript is enabled for the popup</li>
+</ul>
+
+<h3 id="styling-issues">Styling Issues</h3>
+
+<ul>
+  <li>Check CSS specificity conflicts</li>
+  <li>Verify custom stylesheets are loading</li>
+  <li>Test responsive behavior on mobile devices</li>
+</ul>
+
+<h3 id="analytics-not-working">Analytics Not Working</h3>
+
+<ul>
+  <li>Confirm embed parameter is set to “1”</li>
+  <li>Check Buttondown dashboard for subscriber data</li>
+  <li>Verify form submissions in browser developer tools</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Integrating Buttondown with Jekyll creates a powerful platform for building and engaging your audience. The combination of Jekyll’s flexibility and Buttondown’s simplicity makes it easy to create a professional newsletter experience.</p>
+
+<p>Key takeaways:</p>
+
+<ul>
+  <li>Buttondown prioritizes privacy and developer experience</li>
+  <li>The integration is straightforward and customizable</li>
+  <li>Multiple placement options maximize signup opportunities</li>
+  <li>API access enables advanced automation and integrations</li>
+</ul>
+
+<p>Start building your newsletter today and create lasting connections with your readers!</p>
+
+<hr />
+
+<p><em>Have questions about implementing Buttondown with Jekyll? Feel free to reach out or subscribe below for more tutorials like this one.</em></p>
+
+  </div><div class="newsletter-signup post-newsletter">
+  <div class="newsletter-content"><h3>📧 Enjoyed this post?</h3>
+      <p>Subscribe to my newsletter to get more content like this delivered to your inbox.</p><!-- Buttondown Signup Form -->
+    <form action="https://buttondown.email/your-username" method="post" target="popupwindow" 
+          onsubmit="window.open('https://buttondown.email/your-username', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true" 
+          class="buttondown-form">
+      <div class="form-group">
+        <input type="email" 
+               name="email" 
+               id="bd-email-post" 
+               placeholder="Enter your email address" 
+               required 
+               class="newsletter-input">
+        <input type="hidden" value="1" name="embed">
+        <button type="submit" class="newsletter-button">
+          <span class="button-text">Subscribe</span>
+          <span class="button-icon">→</span>
+        </button>
+      </div>
+    </form>
+    
+    <p class="newsletter-privacy">
+      <small>No spam, unsubscribe at any time. Powered by <a href="https://buttondown.email" target="_blank" rel="noopener">Buttondown</a>.</small>
+    </p>
+  </div>
+</div><a class="u-url" href="/setting-up-buttondown-with-jekyll/" hidden></a>
+</article>
+    </div>
+  </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">My Jekyll Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Your Name</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><div class="newsletter-signup footer-newsletter">
+  <div class="newsletter-content"><h4>Newsletter</h4>
+      <p>Stay updated with new posts</p><!-- Buttondown Signup Form -->
+    <form action="https://buttondown.email/your-username" method="post" target="popupwindow" 
+          onsubmit="window.open('https://buttondown.email/your-username', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true" 
+          class="buttondown-form">
+      <div class="form-group">
+        <input type="email" 
+               name="email" 
+               id="bd-email-footer" 
+               placeholder="Enter your email address" 
+               required 
+               class="newsletter-input">
+        <input type="hidden" value="1" name="embed">
+        <button type="submit" class="newsletter-button">
+          <span class="button-text">Subscribe</span>
+          <span class="button-icon">→</span>
+        </button>
+      </div>
+    </form>
+    
+    <p class="newsletter-privacy">
+      <small>No spam, unsubscribe at any time. Powered by <a href="https://buttondown.email" target="_blank" rel="noopener">Buttondown</a>.</small>
+    </p>
+  </div>
+</div></div>
+
+      <div class="footer-col footer-col-3">
+        <p>A modern Jekyll blog with Buttondown newsletter integration</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</footer></body>
+
+</html>

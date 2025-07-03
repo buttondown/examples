@@ -1,0 +1,99 @@
+@import "minima";
+
+/* Custom styles for the blog */
+.post-list {
+  list-style: none;
+  margin-left: 0;
+}
+
+.post-item {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.post-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.post-item h3 {
+  margin: 0.5rem 0 1rem;
+  font-size: 1.5rem;
+}
+
+.post-link {
+  color: #333;
+  text-decoration: none;
+}
+
+.post-link:hover {
+  color: #667eea;
+}
+
+.post-excerpt {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.read-more {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.read-more:hover {
+  color: #5a6fd8;
+}
+
+.post-meta {
+  font-size: 0.875rem;
+  color: #666;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Header improvements */
+.site-header {
+  border-top: 5px solid #667eea;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.site-title {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: #333 !important;
+}
+
+.site-nav .page-link {
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.site-nav .page-link:hover {
+  color: #667eea;
+}
+
+/* Footer improvements */
+.site-footer {
+  background: #f8f9fa;
+  border-top: 1px solid #e1e4e8;
+  padding: 2rem 0;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .post-item {
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .post-item h3 {
+    font-size: 1.25rem;
+  }
+}

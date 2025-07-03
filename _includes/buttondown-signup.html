@@ -1,0 +1,46 @@
+{%- assign context = include.context | default: "post" -%}
+
+<div class="newsletter-signup {{ context }}-newsletter">
+  <div class="newsletter-content">
+    {%- if context == "post" -%}
+      <h3>📧 Enjoyed this post?</h3>
+      <p>Subscribe to my newsletter to get more content like this delivered to your inbox.</p>
+    {%- elsif context == "footer" -%}
+      <h4>Newsletter</h4>
+      <p>Stay updated with new posts</p>
+    {%- else -%}
+      <h3>📧 Subscribe to the Newsletter</h3>
+      <p>Get weekly updates with new articles, coding tips, and insights.</p>
+    {%- endif -%}
+    
+    <!-- Buttondown Signup Form -->
+    <form action="{{ site.buttondown.signup_form_url }}" method="post" target="popupwindow" 
+          onsubmit="window.open('{{ site.buttondown.signup_form_url }}', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true" 
+          class="buttondown-form">
+      <div class="form-group">
+        <input type="email" 
+               name="email" 
+               id="bd-email-{{ context }}" 
+               placeholder="Enter your email address" 
+               required 
+               class="newsletter-input">
+        <input type="hidden" value="1" name="embed">
+        <button type="submit" class="newsletter-button">
+          <span class="button-text">Subscribe</span>
+          <span class="button-icon">→</span>
+        </button>
+      </div>
+    </form>
+    
+    <p class="newsletter-privacy">
+      <small>No spam, unsubscribe at any time. Powered by <a href="https://buttondown.email" target="_blank" rel="noopener">Buttondown</a>.</small>
+    </p>
+  </div>
+</div>
+
+{%- comment -%}
+Usage examples:
+1. Default (after posts): {% include buttondown-signup.html %}
+2. In footer: {% include buttondown-signup.html context="footer" %}
+3. On standalone page: {% include buttondown-signup.html context="page" %}
+{%- endcomment -%}
