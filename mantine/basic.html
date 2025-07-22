@@ -29,30 +29,26 @@
           },
         });
 
-        const handleSubmit = (values, event) => {
-          const data = new FormData();
-          data.append("name", values.name);
-          data.append("email", values.email);
-          fetch("https://buttondown.com/api/emails/embed-subscribe/{username}", {
-            method: "POST",
-            body: data,
-          }).then((response) => console.log(response));
-        };
-
         return (
-          <form onSubmit={form.onSubmit(handleSubmit)}>
+          <form
+            action="https://buttondown.com/api/emails/embed-subscribe/{username}"
+            method="POST"
+          >
             <TextInput
               {...form.getInputProps("name")}
               key={form.key("name")}
+              name="name"
               label="Name"
               placeholder="Name"
             />
             <TextInput
               {...form.getInputProps("email")}
               key={form.key("email")}
+              name="email"
               mt="md"
               label="Email"
               placeholder="Email"
+              required
             />
             <Button type="submit" mt="md" fullWidth>
               Submit
