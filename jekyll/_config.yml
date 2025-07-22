@@ -1,0 +1,23 @@
+# Jekyll configuration for Buttondown example
+title: Newsletter Example with Jekyll
+description: A simple Jekyll site with Buttondown newsletter integration
+email: your-email@example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+theme: minima
+
+# Buttondown settings
+buttondown_username: "{username}" # Replace with your Buttondown username
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
