@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buttondown Checkbox HTML Form Example</title>
+  </head>
+  <body>
+    <div class="card">
+      <form action="https://buttondown.com/api/emails/embed-subscribe/{username}" method="post">
+        <h3>Stay informed</h3>
+        <p>You'll be the first to know when we launch.</p>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="m@example.com" required />
+        <div class="checkbox-group">
+          <span style="font-weight:500; display:block; margin-bottom:0.25rem;">Topics</span>
+          <label>
+            <input type="checkbox" name="tag" value="product-updates" />
+            Product updates
+          </label>
+          <label>
+            <input type="checkbox" name="tag" value="tutorials" />
+            Tutorials
+          </label>
+          <label>
+            <input type="checkbox" name="tag" value="news" />
+            News & announcements
+          </label>
+        </div>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </body>
+</html>

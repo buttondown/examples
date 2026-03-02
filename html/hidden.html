@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buttondown Hidden Tag Form</title>
+  </head>
+  <body>
+    <div class="card">
+      <!-- Subscribers from this form are automatically tagged "landing-page" -->
+      <form action="https://buttondown.com/api/emails/embed-subscribe/{username}" method="post">
+        <input type="hidden" name="tag" value="landing-page" />
+        <h3>Stay informed</h3>
+        <p>You'll be the first to know when we launch.</p>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="m@example.com" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </body>
+</html>
