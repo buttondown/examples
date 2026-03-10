@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buttondown Example Name Form</title>
+  </head>
+  <body>
+    <div class="card">
+      <form action="https://buttondown.com/api/emails/embed-subscribe/{username}" method="post">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="m@example.com" required />
+        <label for="bd-firstname">Enter your first name</label>
+        <input type="text" name="firstname" id="bd-firstname" placeholder="First name" required/>
+        <label for="bd-lastname">Enter your last name</label>
+        <input type="text" name="lastname" id="bd-lastname" placeholder="Last name" required/>
+      <button type="submit">Subscribe</button><br>
+      </form>
+    </div>
+  </body>
+</html>
