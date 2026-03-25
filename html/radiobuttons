@@ -29,7 +29,6 @@
 				<input id="email" name="email" type="email" placeholder="m@example.com"
 				required />
 			</div>
-			<div>
 				<div>
 					<label for="language">
 						Language:
@@ -61,5 +60,4 @@
 		</form>
 		</div>
 	</body>
-
 </html>
