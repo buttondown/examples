@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buttondown Submit Form using jQuery AJAX</title>
+  </head>
+  <body>
+    <div class="card">
+      <form action="https://buttondown.com/api/emails/embed-subscribe/{username}" method="post" id="form">
+        <h3>Stay informed</h3>
+        <p>You'll be the first to know when we launch.</p>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="m@example.com" required />
+        <div class="checkbox-group">
+          <span style="font-weight:500; display:block; margin-bottom:0.25rem;">Topics</span>
+          <label>
+            <input type="checkbox" name="tag" value="product-updates" />
+            Product updates
+          </label>
+          <label>
+            <input type="checkbox" name="tag" value="tutorials" />
+            Tutorials
+          </label>
+          <label>
+            <input type="checkbox" name="tag" value="news" />
+            News & announcements
+          </label>
+        </div>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    <script>
+     const form = document.getElementById('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        });
+      
+      document.getElementById('spinner').style.display = 'block';
+
+      const formData = new FormData(form);
+
+      fetch('form', {
+        async: true,
+        crossDomain: true,
+        url: 'https://buttondown.com/api/emails/embed-subscribe/{username}',
+        method: 'POST',
+        headers: {},
+        body: formData
+      });
+        
+      .then(response => response.json());
+      .then(data => {
+        alert('Form submitted successfully!');
+        document.getElementById('spinner').style.display = 'none'; 
+    });
+      .catch(error => {
+        alert('Oh no, there was an error submitting the form!');
+        document.getElementById('spinner').style.display = 'none';
+    })
+    </script>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    }
+      
+    #spinner {
+    display: none; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+      }
+    </style>
+  </body>
+</html>
