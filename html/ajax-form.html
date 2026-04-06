@@ -3,84 +3,105 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Buttondown Submit Form using jQuery AJAX</title>
+    <title>Buttondown Submit Form with Spinner</title>
+    <style>
+      form {
+      border: 4px solid #f1f1f1;
+      }
+      .button {
+      padding: 5px;
+      background-color: #f1f1f1;
+     }
+     .button-container {
+      padding: 10px;
+     }
+     
+     .email {
+      padding: 2px;
+      display: inline-block;
+      margin-bottom: 5px;
+      }
+
+     .card {
+      padding: 5px;
+      background-color: #f1f1f1;
+      }
+
+      input[type=submit]:hover {
+        opacity: 0.8;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg);}
+        }
+     
+      .spinner {
+        display: none; 
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #3498db;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        }
+    </style>
   </head>
   <body>
     <div class="card">
       <form action="https://buttondown.com/api/emails/embed-subscribe/{username}" method="post" id="form">
+        <div id="spinner" class="spinner"></div>
         <h3>Stay informed</h3>
         <p>You'll be the first to know when we launch.</p>
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" placeholder="m@example.com" required />
+        <div class="email">
+         <label for="email" class="email">Email</label>
+         <input id="email" name="email" type="email" placeholder="m@example.com" />
+        </div>
         <div class="checkbox-group">
-          <span style="font-weight:500; display:block; margin-bottom:0.25rem;">Topics</span>
+          <span style="font-weight:500; display:inline-block; margin-bottom:0.25rem; padding:2px">Topics</span>
           <label>
-            <input type="checkbox" name="tag" value="product-updates" />
+            <input id="product-updates" type="checkbox" name="tag" value="product-updates" />
             Product updates
           </label>
           <label>
-            <input type="checkbox" name="tag" value="tutorials" />
+            <input id="tutorials" type="checkbox" name="tag" value="tutorials" />
             Tutorials
           </label>
           <label>
-            <input type="checkbox" name="tag" value="news" />
-            News & announcements
+            <input id="news" type="checkbox" name="tag" value="news" />
+            News and announcements
           </label>
         </div>
-        <button type="submit">Subscribe</button>
+        <div class="button-container">
+        <button class= "button" type="submit">Subscribe</button>
+        </div>
       </form>
     </div>
     <script>
-     const form = document.getElementById('form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        });
-      
-      document.getElementById('spinner').style.display = 'block';
-
+      const form = document.getElementById('form');
+      const spinner = document.getElementById('spinner');
       const formData = new FormData(form);
 
-      fetch('form', {
+      form.addEventListener('submit', async function (event) {
+        event.preventDefault(),
+        spinner.style.display = 'block'}
+      ); 
+
+      fetch('https://buttondown.com/api/emails/embed-subscribe/{username}',{
         async: true,
         crossDomain: true,
-        url: 'https://buttondown.com/api/emails/embed-subscribe/{username}',
-        method: 'POST',
-        headers: {},
+        method: 'POST', 
+        headers: {}, 
         body: formData
-      });
-        
-      .then(response => response.json());
-      .then(data => {
-        alert('Form submitted successfully!');
-        document.getElementById('spinner').style.display = 'none'; 
-    });
-      .catch(error => {
-        alert('Oh no, there was an error submitting the form!');
-        document.getElementById('spinner').style.display = 'none';
-    })
+       }) 
+       .then(response => response.json())
+       .then(data =>  console.log(data), spinner.style.display = 'none')
+       .catch(error => console.error('Oh no! there was an error submitting the form:', error), spinner.style.display = 'none'
+       );
     </script>
-    <style>
-    body {
-    font-family: Arial, sans-serif;
-    }
-      
-    #spinner {
-    display: none; 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-      }
-    </style>
   </body>
 </html>
