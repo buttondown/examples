@@ -15,6 +15,9 @@ Newsletter subscription form examples built with plain HTML.
 - `checkbox.html` - Subscription form with topic checkboxes (multiple tags)
 - `hidden.html` - Subscription form for pre-tag subscribers with a hidden field 
 - `name.html` - Minimalist form to collect names 
+- `modal.html` — Minimalist subscription modal dialog button with email submission form
+- `modal-scroll.html`— Minimalist scroll-triggered subscription modal dialog with email submission form
+
 
 ## Features
 
