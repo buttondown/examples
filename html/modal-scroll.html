@@ -146,9 +146,7 @@ margin-bottom: 1rem;
     <p>Subscribe to my newsletter.</p>
   </div>
   <label for="email">Email</label>
-  <input type="email" name="emial" id="email" placeholder="me@example.com">
-  <button class="btn">Subcribe</button>
-=
+  <input type="email" name="email" id="email" placeholder="me@example.com">
   <div>
     <p>
       <a href="https://buttondown.com" target="_blank">
@@ -175,22 +173,17 @@ margin-bottom: 1rem;
      window.removeEventListener("scroll", scrollEvent)};
 
     scrollEvent = function() {
-        // Calculate how far we've scrolled
         const scrolled = window.scrollY;
-
-        // Calculate the total height of the page
         const totalHeight = document.body.scrollHeight;
-
-        // Check if we're near the bottom (within 200px)
         if (scrolled + window.innerHeight >= totalHeight - 200) {
-          // Load more content
           openModal();
         };
       };
 
+      
     window.addEventListener('scroll', scrollEvent);
    
-    modal.addEventListener("click", closeModal);
+    closeModalBtn.addEventListener("click", closeModal);
 
     overlay.addEventListener("click", closeModal); 
     
